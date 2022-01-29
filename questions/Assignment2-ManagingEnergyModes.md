@@ -7,10 +7,10 @@ See [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
 
 Energy Mode | Period (ms) | LED On Time (ms) |Period average current (uA) | Average Current with LED off (uA) | Average Current with LED On (uA)
 ------------| ------------|------------------|----------------------------|-----------------------------------|---------------------------------
-EM0         |    TBD      |       TBD        |          TBD               |           TBD                     |         TBD
-EM1         |    TBD      |       TBD        |          TBD               |           TBD                     |         TBD
-EM2         |    TBD      |       TBD        |          TBD               |           TBD                     |         TBD
-EM3         |    TBD      |       TBD        |          TBD               |           TBD                     |         TBD
+EM0         |    2250     |       175        |          4920              |           4850                    |         5410
+EM1         |    2250     |       175        |          3470              |           3440                    |         3960
+EM2         |    2250     |       175        |          44.08             |           3.98                    |         508.32
+EM3         |    2250     |       175        |          43.97             |           3.03                    |         499.67
 
 
 
@@ -56,22 +56,22 @@ LED measurement - Period
 LED measurement - LED on time   
 ![em3_led_ledOnTime][em3_led_ledOnTime]  
 
-[em0_avg_current_period]: screenshots/em0_avg_current_period.jpg "em0_avg_current_period"
-[em0_avg_current_ledoff]: screenshots/em0_avg_current_ledoff.jpg "em0_avg_current_ledoff"
-[em0_avg_current_ledon]: put-your-link-to-screenshot-image-here "em0_avg_current_ledon"
+[em0_avg_current_period]: https://github.com/CU-ECEN-5823/ecen5823-assignment2-Ganeshkm10/blob/master/Screenshots/em0_avg_current_period.png "em0_avg_current_period"
+[em0_avg_current_ledoff]: https://github.com/CU-ECEN-5823/ecen5823-assignment2-Ganeshkm10/blob/master/Screenshots/em0_avg_current_ledoff.png "em0_avg_current_ledoff"
+[em0_avg_current_ledon]: https://github.com/CU-ECEN-5823/ecen5823-assignment2-Ganeshkm10/blob/master/Screenshots/em0_avg_current_ledon.png "em0_avg_current_ledon"
 
-[em1_avg_current_period]: put-your-link-to-screenshot-image-here "em1_avg_current_period"
-[em1_avg_current_ledoff]: put-your-link-to-screenshot-image-here "em1_avg_current_ledoff"
-[em1_avg_current_ledon]: put-your-link-to-screenshot-image-here "em1_avg_current_ledon"
+[em1_avg_current_period]: https://github.com/CU-ECEN-5823/ecen5823-assignment2-Ganeshkm10/blob/master/Screenshots/em1_avg_current_period.png "em1_avg_current_period"
+[em1_avg_current_ledoff]: https://github.com/CU-ECEN-5823/ecen5823-assignment2-Ganeshkm10/blob/master/Screenshots/em1_avg_current_ledoff.png "em1_avg_current_ledoff"
+[em1_avg_current_ledon]: https://github.com/CU-ECEN-5823/ecen5823-assignment2-Ganeshkm10/blob/master/Screenshots/em1_avg_current_ledon.png "em1_avg_current_ledon"
 
-[em2_avg_current_period]: put-your-link-to-screenshot-image-here "em2_avg_current_period"
-[em2_avg_current_ledoff]: put-your-link-to-screenshot-image-here "em2_avg_current_ledoff"
-[em2_avg_current_ledon]: put-your-link-to-screenshot-image-here "em2_avg_current_ledon"
-[em2_led_period]: put-your-link-to-screenshot-image-here "em2_led_period"
-[em2_led_ledOnTime]: put-your-link-to-screenshot-image-here "em2_led_ledOnTime"
+[em2_avg_current_period]: https://github.com/CU-ECEN-5823/ecen5823-assignment2-Ganeshkm10/blob/master/Screenshots/em2_avg_current_period.png "em2_avg_current_period"
+[em2_avg_current_ledoff]: https://github.com/CU-ECEN-5823/ecen5823-assignment2-Ganeshkm10/blob/master/Screenshots/em2_avg_current_ledoff.png "em2_avg_current_ledoff"
+[em2_avg_current_ledon]: https://github.com/CU-ECEN-5823/ecen5823-assignment2-Ganeshkm10/blob/master/Screenshots/em2_avg_current_ledon.png "em2_avg_current_ledon"
+[em2_led_period]: https://github.com/CU-ECEN-5823/ecen5823-assignment2-Ganeshkm10/blob/master/Screenshots/em2_led_period.png "em2_led_period"
+[em2_led_ledOnTime]: https://github.com/CU-ECEN-5823/ecen5823-assignment2-Ganeshkm10/blob/master/Screenshots/em2_led_ledOnTime.png "em2_led_ledOnTime"
 
-[em3_avg_current_period]: put-your-link-to-screenshot-image-here "em3_avg_current_period"
-[em3_avg_current_ledoff]: put-your-link-to-screenshot-image-here "em3_avg_current_ledoff"
-[em3_avg_current_ledon]: put-your-link-to-screenshot-image-here "em3_avg_current_ledon"
-[em3_led_period]: put-your-link-to-screenshot-image-here "em3_led_period"
-[em3_led_ledOnTime]: put-your-link-to-screenshot-image-here "em3_led_ledOnTime"
+[em3_avg_current_period]: https://github.com/CU-ECEN-5823/ecen5823-assignment2-Ganeshkm10/blob/master/Screenshots/em3_avg_current_period.png "em3_avg_current_period"
+[em3_avg_current_ledoff]: https://github.com/CU-ECEN-5823/ecen5823-assignment2-Ganeshkm10/blob/master/Screenshots/em3_avg_current_ledoff.png "em3_avg_current_ledoff"
+[em3_avg_current_ledon]: https://github.com/CU-ECEN-5823/ecen5823-assignment2-Ganeshkm10/blob/master/Screenshots/em3_avg_current_ledon.png "em3_avg_current_ledon"
+[em3_led_period]: https://github.com/CU-ECEN-5823/ecen5823-assignment2-Ganeshkm10/blob/master/Screenshots/em3_led_period.png "em3_led_period"
+[em3_led_ledOnTime]: https://github.com/CU-ECEN-5823/ecen5823-assignment2-Ganeshkm10/blob/master/Screenshots/em3_led_ledOnTime.png "em3_led_ledOnTime"
