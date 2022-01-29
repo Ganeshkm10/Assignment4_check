@@ -1,0 +1,33 @@
+<!DOCTYPE CrossStudio_Project_File>
+<solution Name="">
+  <project Name="">
+    <configuration
+      Name="Default"
+      inherited_configurations="Simplicity_Configuration_Content" />
+    <configuration
+      Name="Simplicity_Configuration_Content"
+      c_user_include_directories="autogen/"
+      silicon_labs_metadata="eJy1VG1P2zAQ/iuVP040hiIkFBUQo7BVoqIiLdOEUeTa19RrYke20zJV/e87J31h0A/jw6TIiZ/cne+ee84rkvQHw/v+TX/0M01G417/IR089Mb3twmJyfOKEQuFWYBkJJ7y3MERI5NK5V7p21eRVxIc/nl+2cOJqaxoUEZ45U0Gmmbc+1ROIsHI0Ud0xkgIUBhZ5YCOjHRLa36B8PFgUIOt1yLXLt6gF4wxMvO+jCldLpeRUzmfuEiYgjpHh41RBMJYCJatTWa1m7dVAypZ7ysRNedGDnxVRrzkYp5O/I3RU5VFUSZEbV7K4i//S8YsY7rV6iqNPDhltGuVWBDY5qDoS1jpxq5L31V0WTOxyQxrDnHXL+ToQD+G16Pv6dP1Y//6a9MW7IqT85qoqcoBWaA3MU1UroTR90gFfhcl7pT/nfhKKkMXZ1TCAnJTgqXo7GgGYm5S/ExdpTzQxWnUoYysD6fQG4SDu1fYB8ZaC7Ch4AtGTqJjRhABLYxUOkNoPLprnzNyhZWH0rH2TelopnkBF/9GeoiKjpgvFiHwjX7bQGQXG43w6U5NLsHuD9go7IPh1hxZ2xu/ESeCO7E0rQ4QRgLLPci3YGUVbl1Nb7ztLj0gePqZHGb/IYfZxxy6tGHsPVxrWcKQ+9kufCMxFNjYYdvpD6WlWR6UWLo0du6wl0BBgD4775y2uXMq0wVo32l/4xrcbF6cHNNdg/aZ7UZkhxyW4uPD8PZx1N9OQj0GqzBrjuM9lXgj5k/cKj7J8RZi4Tcuq3VY1/XQ9WDKq9x/0jEMBspQgbxDQly4HV/I+g8mOtGf" />
+    <folder Name="autogen">
+      <file file_name="autogen/gatt_db.c" />
+      <file file_name="autogen/gatt_db.h" />
+    </folder>
+  </project>
+  <configuration
+    Name="Default"
+    inherited_configurations="Simplicity_Configuration_Content" />
+  <configuration
+    BUILD_OPTIONS="ARM GNU"
+    Name="Simplicity_Configuration_Content"
+    arm_architecture="ARM"
+    arm_core_type="Cortex-M33"
+    arm_endian="Little"
+    arm_fpu_type=""
+    arm_target_device_name="EFR32MG22C224F512IM32"
+    arm_target_interface_type="SWD"
+    build_generic_options_file_name="$(StudioDir)/targets/ARMGNU_build_options.xml"
+    build_toolchain_directory="C:/SiliconLabs/SimplicityStudio/v5/developer/toolchains/gnu_arm/10.2_2020q4/bin"
+    debug_start_from_entry_point_symbol="No"
+    debug_target_connection="J-Link"
+    use_compiler_driver="No" />
+</solution>

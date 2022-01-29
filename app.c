@@ -33,6 +33,12 @@
  *              It is to be used only for ECEN 5823 "IoT Embedded Firmware".
  *              The MSLA referenced above is in effect.
  *
+ *
+ *
+ *
+ *  Edited by: Ganesh KM
+ *  Date: 01-28-2022
+ *
  ******************************************************************************/
 
 
@@ -53,6 +59,7 @@
 #include "src/ble_device_type.h"
 #include "src/gpio.h"
 #include "src/lcd.h"
+#include "app.h"
 
 
 
@@ -68,8 +75,13 @@
 //   up the MCU from the call to sl_power_manager_sleep() in the main while (1)
 //   loop.
 // Students: We'll need to modify this for A2 onward.
+
 #define APP_IS_OK_TO_SLEEP      (false)
+
+
+
 //#define APP_IS_OK_TO_SLEEP      (true)
+
 
 // Return values for app_sleep_on_isr_exit():
 //   SL_POWER_MANAGER_IGNORE; // The module did not trigger an ISR and it doesn't want to contribute to the decision
@@ -96,6 +108,8 @@
 
 
 #include "app.h"
+#include "src/oscillators.h"
+#include "src/timers.h"
 
 
 
@@ -156,10 +170,25 @@ SL_WEAK void app_init(void)
   // Student Edit: Add a call to gpioInit() here
 
   gpioInit(); //initialization of LED 0 and LED 1
+  initOscillator(); //initialization of CMU
+  initLETIMER0();  //initialization of LETIMER0
 
-
-
-
+  if(LOWEST_ENERGY_MODE==0)
+    {
+      sl_power_manager_add_em_requirement(SL_POWER_MANAGER_EM0);
+    }
+  if(LOWEST_ENERGY_MODE==1)
+     {
+       sl_power_manager_add_em_requirement(SL_POWER_MANAGER_EM1);
+     }
+  if(LOWEST_ENERGY_MODE==2)
+     {
+       sl_power_manager_add_em_requirement(SL_POWER_MANAGER_EM2);
+     }
+  if(LOWEST_ENERGY_MODE==3)
+     {
+       sl_power_manager_add_em_requirement(SL_POWER_MANAGER_EM3);
+     }
 }
 
 
@@ -169,7 +198,7 @@ SL_WEAK void app_init(void)
  * comment out this function. Wait loops are a bad idea in general.
  * We'll discuss how to do this a better way in the next assignment.
  *****************************************************************************/
-static void delayApprox(int delay)
+/*static void delayApprox(int delay)
 {
   volatile int i;
 
@@ -178,7 +207,7 @@ static void delayApprox(int delay)
   }
 
 } // delayApprox()
-
+*/
 
 
 
@@ -193,15 +222,15 @@ SL_WEAK void app_process_action(void)
   //         We will create/use a scheme that is far more energy efficient in
   //         later assignments.
 
-  delayApprox(3500000);
+ // delayApprox(3500000);
 
-  gpioLed0SetOn();
+  //gpioLed0SetOn();
   //gpioLed1SetOn();
 
- delayApprox(3500000);
+// delayApprox(3500000);
 
-  gpioLed0SetOff();
-  //gpioLed1SetOff();
+ // gpioLed0SetOff();
+ // gpioLed1SetOff();
 
 }
 
