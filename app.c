@@ -60,7 +60,7 @@
 #include "src/gpio.h"
 #include "src/lcd.h"
 #include "app.h"
-
+#include "src/scheduler.h"
 
 
 // See: https://docs.silabs.com/gecko-platform/latest/service/power_manager/overview
@@ -76,11 +76,11 @@
 //   loop.
 // Students: We'll need to modify this for A2 onward.
 
-#define APP_IS_OK_TO_SLEEP      (false)
+//#define APP_IS_OK_TO_SLEEP      (false)
 
 
 
-//#define APP_IS_OK_TO_SLEEP      (true)
+#define APP_IS_OK_TO_SLEEP      (true)
 
 
 // Return values for app_sleep_on_isr_exit():
@@ -110,6 +110,9 @@
 #include "app.h"
 #include "src/oscillators.h"
 #include "src/timers.h"
+#include "src/i2c.h"
+
+//#include "src/i2c.h"
 
 
 
@@ -172,6 +175,9 @@ SL_WEAK void app_init(void)
   gpioInit(); //initialization of LED 0 and LED 1
   initOscillator(); //initialization of CMU
   initLETIMER0();  //initialization of LETIMER0
+  //Init_I2C(); //Initialization of I2C
+
+
 
   if(LOWEST_ENERGY_MODE==0)
     {
@@ -222,15 +228,28 @@ SL_WEAK void app_process_action(void)
   //         We will create/use a scheme that is far more energy efficient in
   //         later assignments.
 
- // delayApprox(3500000);
+  // delayApprox(3500000);
+  // gpioLed0SetOn();
+  // gpioLed1SetOn();
+  // timerWaitUs(1000000);
+  // delayApprox(3500000);
+  // gpioLed0SetOff();
+  // gpioLed1SetOff();
 
-  //gpioLed0SetOn();
-  //gpioLed1SetOn();
 
-// delayApprox(3500000);
+  volatile uint32_t event;
 
- // gpioLed0SetOff();
- // gpioLed1SetOff();
+  event = getNextEvent();
+
+  switch (event){
+
+    case evtLETIMER0_UF:
+      I2C_TemperatureMeasurement();
+      break;
+    case evtLETIMER0_COMP1:
+      //no event -
+      break;
+  }
 
 }
 

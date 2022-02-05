@@ -8,7 +8,7 @@
    March 17
    Dave Sluiter: Use this file to define functions that set up or control GPIOs.
 
-   Edited by : Ganesh KM for Assignment 1
+   Edited by : Ganesh KM for Assignment 3
 
  */
 
@@ -23,6 +23,7 @@
 #include "em_gpio.h"
 #include <string.h>
 
+#include "gpio.h"
 
 // Student Edit: Define these, 0's are placeholder values.
 // See the radio board user guide at https://www.silabs.com/documents/login/user-guides/ug279-brd4104a-user-guide.pdf
@@ -34,12 +35,13 @@
 #define LED1_port  gpioPortF
 #define LED1_pin   5
 
+#define SI7021_PORT gpioPortD
+#define SI7021_PIN  15
 
-
-
-
-#include "gpio.h"
-
+#define I2C0_SCL_PORT  gpioPortC
+#define I2C0_SCL_PIN   10
+#define I2C0_SDA_PORT  gpioPortC
+#define I2C0_SDA_PIN   11
 
 
 
@@ -58,6 +60,7 @@ void gpioInit()
 	GPIO_PinModeSet(LED1_port, LED1_pin, gpioModePushPull, false);
 
 
+	GPIO_PinModeSet( SI7021_PORT, SI7021_PIN, gpioModePushPull, true ); //SI7021 sensor initialization
 
 } // gpioInit()
 
@@ -85,8 +88,30 @@ void gpioLed1SetOff()
 	GPIO_PinOutClear(LED1_port,LED1_pin);
 }
 
+void gpioSi7021Enable()
+{
+  GPIO_PinOutSet(SI7021_PORT,SI7021_PIN);
+}
+
+void gpioSi7021Disable()
+{
+  GPIO_PinOutClear(SI7021_PORT,SI7021_PIN);
+}
 
 
+
+/* need to check --> not sure about disabling I2C after reading measurement
+void gpioI2cSdaDisable() //
+{
+    GPIO_PinOutClear( I2C0_SDA_PORT, I2C0_SDA_PIN );
+}
+
+
+void gpioI2cSclDisable()
+{
+    GPIO_PinOutClear( I2C0_SCL_PORT, I2C0_SCL_PIN );
+}
+*/
 
 
 

@@ -8,6 +8,6 @@
 #ifndef SRC_IRQ_H_
 #define SRC_IRQ_H_
 
-
+#include "scheduler.h"
 
 #endif /* SRC_IRQ_H_ */

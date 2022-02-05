@@ -49,9 +49,13 @@
 
 // Change the enrgy mode here..0 is EM0 , 1 is EM1, 2 is EM2, 3 is EM3
 
-#define LOWEST_ENERGY_MODE 0
+#define LOWEST_ENERGY_MODE 3
 
 
+typedef enum{
+  evtLETIMER0_UF=4,
+  evtLETIMER0_COMP1=2
+}evt;
 
 
 

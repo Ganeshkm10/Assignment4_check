@@ -19,5 +19,16 @@
 
 void initLETIMER0();
 
+/* TimerWaitUs
+ *
+ * @description: Function to handle delay based on the LETIMER COUNT register and Compare register.
+ *
+ * @params: us_wait (micro seconds delay)
+ *
+ * @return: None
+ */
+
+void timerWaitUs(uint32_t us_wait);
+
 
 #endif /* SRC_TIMERS_H_ */

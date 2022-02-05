@@ -1,0 +1,33 @@
+<!DOCTYPE CrossStudio_Project_File>
+<solution Name="ecen5823-assignment3-Ganeshkm10">
+  <project Name="ecen5823-assignment3-Ganeshkm10">
+    <configuration
+      Name="Simplicity_Configuration_Content"
+      c_user_include_directories="autogen/"
+      silicon_labs_metadata="eJy1VGtr2zAU/StBH0dr9UGhmLSla9ot0NAQJx2jKkaRbhwttmQkOekI+e+7svPo2kApbGBk6/jq3Ne5WpKk2+vfd2+6w59pMhx1ug9p76Ezur9NSEyeloxYKMwcJCPxhOcODhgZVyr3St++iLyS4PDP0/MOTkxlRYMywitvMtA0496nchwJRg7eo1NGAkFhZJUDHmSkXVrzC4SPe70abL0UuXbxGr1gjJGp92VM6WKxiJzK+dhFwhTUOdpvjCIQxkKwbK0jq495WzWgkvW+ElHjN3LgqzLiJRezdOxvjJ6oDElAn52fnB5y51SmC9D+9PAb1+Cms+L4KMqEqNlKWfxFf8mYZUy3Wm2lsUxOGe1aJeYLtokj+hJWurZr0zcJX9aFWgeOJQm8q2dysKdd/evh9/TxetC9/tp0DZvm5Kyu40TlgEWiNzFNVK6E0fdYKfwuStwp/zvxlVSGzs+ohDnkpgRL8bCjGYiZSfEzdZXyQOen0QllZLU/hE4vOG5fYZsYa83BhoQvGDmOjhhBBLQwUukModHw7vCckSvMPKSOua9TRzPNC7j4Jz0JTpEX08EcBb6RduOHbF2jET7tickl2J3/tT7fGW7Msag741fSRnArtUYJAUImsNyDfA1WVuHW1dWPN82ne8aFfiaG6X+IYfo+hjZtKvYWrqUuoc/9dEvfKBD1N3KoCvpDaWkWexWYLoydOWw10A86TLcN2kW2naAtsl+pg4f+7WDY3QxKBya8yn09LMswkY7jZZd4I2aP3Co+zvEqY+E3LstVWFf1aH4Q4icJw1ihShXIO6yXC1fvM1n9AZwA8eY=" />
+    <configuration
+      Name="Default"
+      inherited_configurations="Simplicity_Configuration_Content" />
+    <folder Name="autogen">
+      <file file_name="autogen/gatt_db.c" />
+      <file file_name="autogen/gatt_db.h" />
+    </folder>
+  </project>
+  <configuration
+    Name="Default"
+    inherited_configurations="Simplicity_Configuration_Content" />
+  <configuration
+    BUILD_OPTIONS="ARM GNU"
+    Name="Simplicity_Configuration_Content"
+    arm_architecture="ARM"
+    arm_core_type="Cortex-M33"
+    arm_endian="Little"
+    arm_fpu_type=""
+    arm_target_device_name="EFR32MG22C224F512IM32"
+    arm_target_interface_type="SWD"
+    build_generic_options_file_name="$(StudioDir)/targets/ARMGNU_build_options.xml"
+    build_toolchain_directory="C:/SiliconLabs/SimplicityStudio/v5/developer/toolchains/gnu_arm/10.2_2020q4/bin"
+    debug_start_from_entry_point_symbol="No"
+    debug_target_connection="J-Link"
+    use_compiler_driver="No" />
+</solution>

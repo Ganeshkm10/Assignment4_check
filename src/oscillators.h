@@ -16,6 +16,8 @@
  * @params: None
  * @return: None
  */
+#include"em_cmu.h"
+#include"app.h"
 
 void initOscillator();
 

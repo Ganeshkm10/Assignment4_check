@@ -13,13 +13,6 @@
 #define SRC_GPIO_H_
 
 
-
-
-
-
-
-
-
 // Function prototypes
 void gpioInit();
 void gpioLed0SetOn();
@@ -27,8 +20,13 @@ void gpioLed0SetOff();
 void gpioLed1SetOn();
 void gpioLed1SetOff();
 
+void gpioSi7021Enable();
+void gpioSi7021Disable();
 
-
+/*
+void gpioI2cSclDisable();
+void gpioI2cSdaDisable();
+*/
 
 
 #endif /* SRC_GPIO_H_ */

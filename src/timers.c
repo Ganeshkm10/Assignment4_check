@@ -5,6 +5,8 @@
  *      Author: Ganesh KM
  *      Description: This file contains source code for initialization of LETIMER0
  *      Note : To change the LED ON period and LETIMER PERIOD , change the values in the #defines.
+ *
+ *      Modified on : 04-FEB-2022 for Assignment 3 (added Timer delay US function)
  */
 
 #include<em_letimer.h>
@@ -12,12 +14,15 @@
 #include"app.h"
 #include"timers.h"
 
+#define INCLUDE_LOG_DEBUG 1
+#include "log.h"
+
 
 /*
  * configurable parameters such as LED ON time and period in ms.
  *
  */
-#define LETIMER_PERIOD_MS 2250   //VALUES ARE IN Milliseconds
+#define LETIMER_PERIOD_MS 3000   //VALUES ARE IN Milliseconds
 #define LED_ON_PERIOD_MS 175     //VALUES ARE IN Milliseconds
 
 
@@ -41,7 +46,6 @@
  * @params: None
  * @return: None
  */
-
 
 void initLETIMER0()
 {
@@ -85,4 +89,40 @@ void initLETIMER0()
   reaches zero. */
 }
 
+/* TimerWaitUs
+ *
+ * @description: Function to handle delay based on the LETIMER COUNT register and Compare register.
+ *
+ * @params: us_wait (micro seconds delay)
+ *
+ * @return: None
+ */
+
+void timerWaitUs(uint32_t us_wait)
+{
+
+  uint32_t CounterValue, difference, ticks, compvalue;
+
+  if(us_wait / 1000 > UINT16_MAX) //handling range checking for the TimerWaitUs delay function.
+    {
+      us_wait = UINT16_MAX;
+      LOG_WARN(" The REQUESTED DELAY IS MORE THAN THE FUNCTION CAN SUPPORT : MAX TIME SUPPORTED %lu usecs ", us_wait);
+    }
+
+  ticks = (us_wait*ACTUAL_CLK_FREQ_ULFRCO)/1000000;
+  CounterValue = LETIMER_CounterGet(LETIMER0);
+
+  if(ticks<CounterValue)
+    {
+      difference = CounterValue - ticks;
+    }
+  else
+    {
+      difference = ticks - CounterValue;
+      compvalue = LETIMER_CompareGet(LETIMER0,0);
+      difference = compvalue - difference;
+    }
+
+  while(LETIMER_CounterGet(LETIMER0) != difference);
+}
 
