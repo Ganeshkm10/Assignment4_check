@@ -40,5 +40,20 @@
 			<type>1</type>
 			<locationURI>PROJECT_LOC/ecen5823-assignment3-Ganeshkm10.slps</locationURI>
 		</link>
+		<link>
+			<name>ecen5823-assignment4-Ganeshkm10.pintool</name>
+			<type>1</type>
+			<locationURI>PROJECT_LOC/ecen5823-assignment4-Ganeshkm10.pintool</locationURI>
+		</link>
+		<link>
+			<name>ecen5823-assignment4-Ganeshkm10.slcp</name>
+			<type>1</type>
+			<locationURI>PROJECT_LOC/ecen5823-assignment4-Ganeshkm10.slcp</locationURI>
+		</link>
+		<link>
+			<name>ecen5823-assignment4-Ganeshkm10.slps</name>
+			<type>1</type>
+			<locationURI>PROJECT_LOC/ecen5823-assignment4-Ganeshkm10.slps</locationURI>
+		</link>
 	</linkedResources>
 </projectDescription>

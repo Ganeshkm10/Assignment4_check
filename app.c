@@ -110,7 +110,7 @@
 #include "app.h"
 #include "src/oscillators.h"
 #include "src/timers.h"
-#include "src/i2c.h"
+//#include "src/i2c.h"
 
 //#include "src/i2c.h"
 
@@ -176,7 +176,7 @@ SL_WEAK void app_init(void)
   initOscillator(); //initialization of CMU
   initLETIMER0();  //initialization of LETIMER0
   //Init_I2C(); //Initialization of I2C
-
+  init_statemachine();
 
 
   if(LOWEST_ENERGY_MODE==0)
@@ -237,10 +237,13 @@ SL_WEAK void app_process_action(void)
   // gpioLed1SetOff();
 
 
-  volatile uint32_t event;
+  volatile event evt;
 
-  event = getNextEvent();
+  evt = getNextEvent();
 
+  statemachine_temperaturemeasurement(evt);
+
+  /*
   switch (event){
 
     case evtLETIMER0_UF:
@@ -250,7 +253,7 @@ SL_WEAK void app_process_action(void)
       //no event -
       break;
   }
-
+*/
 }
 
 /**************************************************************************//**

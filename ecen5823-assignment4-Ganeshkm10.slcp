@@ -1,6 +1,6 @@
 # Silicon Labs Project Configuration Tools: slcp, v0, Component selection file.
-project_name: ecen5823-assignment3-Ganeshkm10
-label: ecen5823-assignment3-Ganeshkm10
+project_name: ecen5823-assignment4-Ganeshkm10
+label: ecen5823-assignment4-Ganeshkm10
 sdk: {id: gecko_sdk, version: 3.2.3}
 toolchain_settings: []
 ui_hints: {}

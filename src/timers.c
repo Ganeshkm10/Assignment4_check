@@ -7,6 +7,8 @@
  *      Note : To change the LED ON period and LETIMER PERIOD , change the values in the #defines.
  *
  *      Modified on : 04-FEB-2022 for Assignment 3 (added Timer delay US function)
+ *
+ *      Modified on : 11-FEB-2022 for Assignment 4 (added Timer delay us irq function)
  */
 
 #include<em_letimer.h>
@@ -65,7 +67,7 @@ void initLETIMER0()
   LETIMER_Init(LETIMER0,&letimer_init);
 
   LETIMER_IntEnable(LETIMER0,LETIMER_IEN_UF);
-  LETIMER_IntEnable(LETIMER0,LETIMER_IEN_COMP1);
+ // LETIMER_IntEnable(LETIMER0,LETIMER_IEN_COMP1);
 
    NVIC_EnableIRQ(LETIMER0_IRQn);
    LETIMER_Enable(LETIMER0,true);
@@ -74,12 +76,12 @@ void initLETIMER0()
    if(LOWEST_ENERGY_MODE == 3)
      {
        LETIMER_CompareSet(LETIMER0,0,VALUE_TO_LOAD_ULFRCO);
-       LETIMER_CompareSet(LETIMER0,1,VALUE_TO_LOAD_COMP1_ULFRCO);
+      // LETIMER_CompareSet(LETIMER0,1,VALUE_TO_LOAD_COMP1_ULFRCO);
      }
    else if((LOWEST_ENERGY_MODE == 2) | (LOWEST_ENERGY_MODE == 1) |(LOWEST_ENERGY_MODE == 0))
      {
        LETIMER_CompareSet(LETIMER0,0,VALUE_TO_LOAD);
-       LETIMER_CompareSet(LETIMER0,1,VALUE_TO_LOAD_COMP1);
+      // LETIMER_CompareSet(LETIMER0,1,VALUE_TO_LOAD_COMP1);
      }
 
 
@@ -98,7 +100,7 @@ void initLETIMER0()
  * @return: None
  */
 
-void timerWaitUs(uint32_t us_wait)
+void timerWaitUs_Polled(uint32_t us_wait)
 {
 
   uint32_t CounterValue, difference, ticks, compvalue;
@@ -125,4 +127,43 @@ void timerWaitUs(uint32_t us_wait)
 
   while(LETIMER_CounterGet(LETIMER0) != difference);
 }
+
+
+/* TimerWaitUs
+ *
+ * @description: Function to handle delay based on the LETIMER COUNT register and Compare register.
+ *
+ * @params: us_wait (micro seconds delay)
+ *
+ * @return: None
+ */
+
+void timerWaitUs_irq(uint32_t ms_wait)
+{
+
+  uint32_t CounterValue, difference, ticks, compvalue;
+
+  /*if(ms_wait > UINT16_MAX) //handling range checking for the TimerWaitUs delay function.
+    {
+      ms_wait = UINT16_MAX;
+      LOG_WARN(" The REQUESTED DELAY IS MORE THAN THE FUNCTION CAN SUPPORT : MAX TIME SUPPORTED %lu msecs ", ms_wait);
+    }*/
+
+  ticks = (ms_wait*ACTUAL_CLK_FREQ_ULFRCO)/1000;
+  CounterValue = LETIMER_CounterGet(LETIMER0);
+
+  if(ticks<CounterValue)
+    {
+      difference = CounterValue - ticks;
+    }
+  else
+    {
+      difference = ticks - CounterValue;
+      compvalue = LETIMER_CompareGet(LETIMER0,0);
+      difference = compvalue - difference;
+    }
+  LETIMER_CompareSet(LETIMER0,1,difference);//comp1
+  LETIMER_IntEnable(LETIMER0,LETIMER_IEN_COMP1);
+}
+
 

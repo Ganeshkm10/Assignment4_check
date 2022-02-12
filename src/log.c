@@ -15,6 +15,8 @@
 
 
 #include <stdbool.h>
+//#include "timers.h"
+#include "irq.h"
 
 // Include logging for this file
 #define INCLUDE_LOG_DEBUG 1
@@ -44,8 +46,8 @@ uint32_t loggerGetTimestamp()
        //           and not return 0. This will be the function to call for your graded
        //           assignments. Put the letimerMilliseconds() function in your irq.c/.h files.
        
-       //return letimerMilliseconds();
-	   return (0);
+       return letimerMilliseconds();
+	   //return (0);
 	   
     #endif
 

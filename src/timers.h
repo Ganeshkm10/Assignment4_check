@@ -8,7 +8,9 @@
 
 #ifndef SRC_TIMERS_H_
 #define SRC_TIMERS_H_
-
+#include "stdio.h"
+#include <inttypes.h>
+#include<em_letimer.h>
 //function prototypes
 
 /*
@@ -28,7 +30,18 @@ void initLETIMER0();
  * @return: None
  */
 
-void timerWaitUs(uint32_t us_wait);
+void timerWaitUs_Polled(uint32_t us_wait);
+
+/* TimerWaitUs
+ *
+ * @description: Function to handle delay based on the LETIMER COUNT register and Compare register.
+ *
+ * @params: us_wait (micro seconds delay)
+ *
+ * @return: None
+ */
+
+void timerWaitUs_irq(uint32_t ms_wait);
 
 
 #endif /* SRC_TIMERS_H_ */

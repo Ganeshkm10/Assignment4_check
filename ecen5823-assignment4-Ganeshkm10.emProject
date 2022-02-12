@@ -1,0 +1,33 @@
+<!DOCTYPE CrossStudio_Project_File>
+<solution Name="ecen5823-assignment4-Ganeshkm10">
+  <project Name="ecen5823-assignment4-Ganeshkm10">
+    <configuration
+      Name="Simplicity_Configuration_Content"
+      c_user_include_directories="autogen/"
+      silicon_labs_metadata="eJy1VG1r2zAQ/itBH0dq9WWFEtKWrmm3QENDnXSMqhhFujhabMlIctIS8t93shO3awOlsIGRrcene3nuOa1I3B8Mb/qX/dGvJB6Ne/3bZHDbG99cxaRDHlaMTEqVeaWvnkRWSnCMdB4e24xYyM0CJG6nPHPQbgxjU1pR2zHCS29S0DTl3idyEglG2u/RGSPBZW5kmQEeZKRbWPMbhO8MBhXYesoz7Tob9JQxRmbeFx1Kl8tl5FTGJy4SJqfO0WFtFIEwFoJla5NZdczbsgaVrPaliOq4kQNfFhEvuJgnE39p9FSl6AT08cnh0R53TqU6B+2/7n3nGtxsnh/sR6kQlbdC5n+5P2PMMqZbra7SSJxTRrtWgfWCrfOIvoSVbuy69E3BZxVRm8SRkuB3/UjaO9o1vBj9SO4v7voX3+quYdOcnFc8TlUGSBK97NBYZUoYfYNM4Xde4E7559iXUhm6OKYSFpCZAizFw46mIOYmwc/ElcoDXRxFh5SR9e4UeoMQuHuObWKstQAbCj5l5CDaZwQR0MJIpVOExqPrvRNGzrHyUDrWvikdzTTP4fSf9CQERb9YDtYo8I1ut3FIExqN8OlOTSbBvsTf6POd4dYcSX0xfiVtBBup1UoIEHoCyz3I12BpFW5dxX5n23y6Y1zoZ3KY/YccZu9z6NKasbdwJXUJQ+5njftagai/sUNV0J9KS7PcqcBkaezcYauBftBh2jToJbNmghpkt1LvbodXd6P+dlB6MOVl5qthWYWJdBxvtdgbMb/nVvFJhlcZC79xWa3Duq5G84MUP+kwjBWqVIG8Rr5cuHofyfoPp3jx6g==" />
+    <configuration
+      Name="Default"
+      inherited_configurations="Simplicity_Configuration_Content" />
+    <folder Name="autogen">
+      <file file_name="autogen/gatt_db.c" />
+      <file file_name="autogen/gatt_db.h" />
+    </folder>
+  </project>
+  <configuration
+    Name="Default"
+    inherited_configurations="Simplicity_Configuration_Content" />
+  <configuration
+    BUILD_OPTIONS="ARM GNU"
+    Name="Simplicity_Configuration_Content"
+    arm_architecture="ARM"
+    arm_core_type="Cortex-M33"
+    arm_endian="Little"
+    arm_fpu_type=""
+    arm_target_device_name="EFR32MG22C224F512IM32"
+    arm_target_interface_type="SWD"
+    build_generic_options_file_name="$(StudioDir)/targets/ARMGNU_build_options.xml"
+    build_toolchain_directory="C:/SiliconLabs/SimplicityStudio/v5/developer/toolchains/gnu_arm/10.2_2020q4/bin"
+    debug_start_from_entry_point_symbol="No"
+    debug_target_connection="J-Link"
+    use_compiler_driver="No" />
+</solution>
