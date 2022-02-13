@@ -16,7 +16,7 @@
 
 #include <stdbool.h>
 //#include "timers.h"
-#include "irq.h"
+//#include "irq.h"
 
 // Include logging for this file
 #define INCLUDE_LOG_DEBUG 1

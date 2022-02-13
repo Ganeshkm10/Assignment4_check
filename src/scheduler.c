@@ -8,12 +8,16 @@
  *      Modified on 11-FEB-2022 for Assignment 4
  *
  */
+
 #include <stdbool.h>
+#include "em_core.h"
+
 #include"scheduler.h"
 #include "gpio.h"
 #include "timers.h"
 #include "oscillators.h"
 #include "i2c.h"
+#include "irq.h"
 
 #define INCLUDE_LOG_DEBUG 1
 #include "log.h"
@@ -26,14 +30,14 @@ uint16_t SI7021_ADDRESS = 0x40;
 uint8_t CMD_READ = 0XF3;*/
 /*#include"em_core.h"
 
-typedef uint32_t CORE_irqState_t;
-CORE_irqState_t irqState;
+
 
 #define CORE_DECLARE_IRQ_STATE        CORE_irqState_t irqState
 #define CORE_ENTER_CRITICAL()       irqState = CORE_EnterCritical()
 #define CORE_EXIT_CRITICAL()       CORE_ExitCritical(irqState)*/
 
-
+//typedef uint32_t CORE_irqState_t;
+//CORE_irqState_t irqState;
 //static volatile uint32_t Event_flag=0;
 
 volatile event _EVENT;
@@ -47,13 +51,14 @@ volatile event _EVENT;
  */
 void schedulerSetEventUF(void)
 {
-  //CORE_ENTER_CRITICAL();
+  CORE_DECLARE_IRQ_STATE;
+  CORE_ENTER_CRITICAL();
   //UF_flag |= LETIMER_IF_UF;
 
   _EVENT = event_MEASURE_TEMPERATURE;
 
   // gpioLed1SetOn();
-  //CORE_EXIT_CRITICAL() ;
+ CORE_EXIT_CRITICAL() ;
 }
 
 /*
@@ -64,8 +69,11 @@ void schedulerSetEventUF(void)
 
 void schedulerSetEvent_I2C_TransferComplete()
 {
+  CORE_DECLARE_IRQ_STATE;
+  CORE_ENTER_CRITICAL();
   _EVENT = event_I2C_TransferComplete;
-
+ // LOG_INFO("Entering I2C transfer scheduler");
+  CORE_EXIT_CRITICAL() ;
 }
 
 /*
@@ -76,11 +84,12 @@ void schedulerSetEvent_I2C_TransferComplete()
 
 void schedulerSetEventCOMP1()
 {
- // CORE_ENTER_CRITICAL();
+  CORE_DECLARE_IRQ_STATE;
+  CORE_ENTER_CRITICAL();
   _EVENT = event_LETIMER0_COMP1;
 
   //gpioLed1SetOff();
- // CORE_EXIT_CRITICAL() ;
+  CORE_EXIT_CRITICAL() ;
 }
 
 
@@ -110,6 +119,7 @@ void schedulerClearEvent()
 {
   //CORE_ENTER_CRITICAL();
     _EVENT = eventclear;
+    //LOG_INFO("Entering clear event scheduler");
   //  CORE_EXIT_CRITICAL() ;
 }
 

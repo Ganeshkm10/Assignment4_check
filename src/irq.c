@@ -24,13 +24,12 @@ extern uint8_t CMD_READ;
 
 uint32_t Log_time=0;
 
-typedef uint32_t CORE_irqState_t;
-CORE_irqState_t irqState;
 
+/*typedef uint32_t CORE_irqState_t;
+ extern  CORE_irqState_t irqState;
 #define CORE_DECLARE_IRQ_STATE        CORE_irqState_t irqState
 #define CORE_ENTER_CRITICAL()       irqState = CORE_EnterCritical()
-#define CORE_EXIT_CRITICAL()       CORE_ExitCritical(irqState)
-
+#define CORE_EXIT_CRITICAL()       CORE_ExitCritical(irqState)*/
 /*
  * @description: LETIMER0 Interrupt handler function
  * @params: None
@@ -43,7 +42,7 @@ void LETIMER0_IRQHandler(void)
   uint32_t flags;
   flags = LETIMER_IntGetEnabled(LETIMER0); //getting the flag being set from Interrupt register
 
-  if(flags == LETIMER_IF_UF)
+  if(flags & LETIMER_IF_UF)
     {
       schedulerSetEventUF();
       Handle_count();
@@ -52,7 +51,7 @@ void LETIMER0_IRQHandler(void)
 
       LETIMER_IntClear(LETIMER0,LETIMER_IFC_UF);
     }
-  if(flags == LETIMER_IF_COMP1)
+  if(flags & LETIMER_IF_COMP1)
       {
       schedulerSetEventCOMP1();
      // gpioLed1SetOn();

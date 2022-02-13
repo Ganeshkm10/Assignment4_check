@@ -160,6 +160,7 @@ void timerWaitUs_irq(uint32_t ms_wait)
     {
       difference = ticks - CounterValue;
       compvalue = LETIMER_CompareGet(LETIMER0,0);
+
       difference = compvalue - difference;
     }
   LETIMER_CompareSet(LETIMER0,1,difference);//comp1
